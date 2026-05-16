@@ -1,5 +1,9 @@
 // http://localhost:3000/pagename
 const express = require('express');
+// add dotenv
+const dotenv = require('dotenv');
+dotenv.config();
+
 // add middleware 
 const bodyParser = require('body-parser');
 // add supabase client
@@ -11,15 +15,15 @@ app.use(bodyParser.json());
 
 // ----------------------- add supabase db's ----------------------- // 
 // USERS DB //
-const supabaseURL_1 = '';
-const supabaseKey_1 = ''; // will link to dotenv
+const supabaseURL_1 = process.env.SUPABASE_URL_1;
+const supabaseKey_1 = process.env.SUPABASE_KEY_1; // will link to dotenv
 
 // initialize the db 
 const supabase1 = supabaseClient.createClient(supabaseURL_1, supabaseKey_1);
 
 // SAVEDBOOKS DB //
-const supabaseURL_2 = '';
-const supabaseKey_2 = ''; // will link to dotenv
+const supabaseURL_2 = process.env.SUPABASE_URL_2;
+const supabaseKey_2 = process.env.SUPABASE_KEY_2; // will link to dotenv
 
 // initialize the db 
 const supabase2 = supabaseClient.createClient(supabaseURL_2, supabaseKey_2);
