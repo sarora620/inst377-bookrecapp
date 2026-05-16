@@ -1,10 +1,12 @@
 // http://localhost:3000/pagename
 const express = require('express');
+// add middleware 
+const bodyParser = require('body-parser');
 // add supabase client
 const supabaseClient = require('@supabase/supabase-js');
 const app = express();
 const port = 3000;
-// add middleware
+// initialize middeware
 app.use(bodyParser.json());
 
 // ----------------------- add supabase db's ----------------------- // 
