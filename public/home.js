@@ -36,5 +36,4 @@ activateNav();
 // run these functions when an event happens 
 searchInput.addEventListener("click", expandSearch);
 pageSlider.addEventListener("input", updatePageNumber);
-resetBtn.addEventListener("click", resetSearch);
 searchBtn.addEventListener("click", handleSearch);
