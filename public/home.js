@@ -6,7 +6,49 @@ function activateNav() {
         link.classList.add("active");
       }
     });
-  }
+};
+
+function expandSearch() {
+    const searchOptions = document.getElementById("searchOptions");
+    searchOptions.classList.add("active");
+}
+
+function updatePageNumber() {
+    const pageValue = document.getElementById("pageValue");
+    pageValue.textContent = pageSlider.value;
+}
+
+function resetSearch() {
+    const searchInput = document.getElementById("searchInput");
+    searchInput.value = "";
+
+    document.getElementById("genreSelect").value = "";
+
+    const pageSlider = document.getElementById("pageSlider");
+    pageSlider.value = 500;
+
+    const pageValue = document.getElementById("pageValue");
+    pageValue.textContent = 500;
+
+}
+
+function handleSearch() {
+    const searchInput = document.getElementById("searchInput");
+
+    const searchData = {
+        searchText: searchInput.value,
+        genre: document.getElementById("genreSelect").value,
+        maxPages: pageSlider.value
+  };
+  console.log(searchData);
+};
+
   
-  // Run the function when the page loads
-  activateNav();
+// Run the function when the page loads
+activateNav();
+
+// run these functions when an event happens 
+searchInput.addEventListener("click", expandSearch);
+pageSlider.addEventListener("input", updatePageNumber);
+resetBtn.addEventListener("click", resetSearch);
+searchBtn.addEventListener("click", handleSearch);

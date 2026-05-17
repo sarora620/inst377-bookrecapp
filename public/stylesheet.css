@@ -1,55 +1,162 @@
 body {
     font-family: Arial, sans-serif;
-  }
+    background-color:#f6ebda;
+    color:#78350f;
+    margin: 0;
+}
   
-  /* Nav positioning */
-  .nav {
+/* Nav positioning */
+.nav {
     position: fixed;
     top: 24px;
     left: 24px;
-  }
-  
-  /* Main container */
-  .nav-container {
+}
+
+/* nav container (took this from my figma make prototype */
+.nav-container {
     display: flex;
     align-items: center;
     gap: 20px;
-  
+
     background-color: #ffffffcc;
     backdrop-filter: blur(6px);
-  
+
     padding: 10px 20px;
     border-radius: 999px;
     box-shadow: 0 4px 10px #0000001a;
-  }
-  
-  /* Logo */
-  .logo {
+}
+
+/* nav logo */
+.logo {
     display: flex;
     align-items: center;
     gap: 6px;
-  
+
     text-decoration: none;
-    color: #78350f; /* amber-ish */
+    color: #78350f;
     font-weight: bold;
-  }
-  
-  /* Links */
-  .nav-link {
+}
+
+/* links */
+.nav-link {
     text-decoration: none;
     color: #92400e;
     padding: 4px 12px;
     border-radius: 999px;
     transition: 0.2s;
-  }
-  
-  /* Hover effect */
-  .nav-link:hover {
+}
+
+/* hover effect */
+.nav-link:hover {
     background-color: #fef3c7;
-  }
-  
-  /* Active page */
-  .nav-link.active {
+}
+
+/* active page */
+.nav-link.active {
     background-color: #b45309;
     color: white;
+}
+
+/* main container */
+.main-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 120px 20px 40px;
+}
+
+  /* search bar */
+.search-container {
+    width: 420px;
+    background-color: #ffffffcc;
+    backdrop-filter: (6px);
+    border-radius: 40px;
+    padding: 20px;
+    box-shadow: 0 4px 10px #0000001a;
+}
+
+.idle-search {
+    display: flex;
+    align-items: center;
+    gap:10px;
+}
+
+.search-container input,
+.search-container select,
+.search-container button {
+  font-size: 16px;
+  border-radius: 10px;
+  border: 1px solid #d6d3d1;
+  padding: 10px;
+  color:#92400e;
+}
+
+#searchInput {
+    flex: 1;
+    border: none;
+    background-color: transparent;
+    color: #78350f;
   }
+  
+  #searchInput:focus {
+    outline: none;
+  }
+  
+  /* reset button */
+  #resetBtn {
+    background-color: white;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+#resetBtn:hover {
+    background-color: #fef3c7;
+}
+
+.search-options {
+    display: none;
+    margin-top: 20px;
+}
+  
+.search-options.active {
+    display: block;
+}
+
+/* option spacing */
+.option-group {
+    margin-bottom: 20px;
+}
+
+.option-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+
+/* dropdown */
+#genreSelect {
+    width: 100%;
+}
+
+/* slider */
+#pageSlider {
+    width: 100%;
+}
+
+/* search button */
+#searchBtn {
+    width: 100%;
+    border: none;
+    background-color: #b45309;
+    color: white;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+#searchBtn:hover {
+    background-color: #92400e;
+}
+  
