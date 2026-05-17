@@ -102,21 +102,6 @@ body {
 #searchInput:focus {
     outline: none;
 }
-  
-/* reset button */
-#resetBtn {
-    background-color: white;
-    cursor: pointer;
-    transition: 0.2s;
-}
-
-#resetBtn:hover {
-    background-color: #fef3c7;
-}
-  
-.search-options.active {
-    display: block;
-}
 
 /* option spacing */
 .option-group {
@@ -129,7 +114,6 @@ body {
     font-weight: bold;
     margin: 10px;
 }
-
 
 /* dropdown */
 #genreSelect {

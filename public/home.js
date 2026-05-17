@@ -18,20 +18,6 @@ function updatePageNumber() {
     pageValue.textContent = pageSlider.value;
 }
 
-function resetSearch() {
-    const searchInput = document.getElementById("searchInput");
-    searchInput.value = "";
-
-    document.getElementById("genreSelect").value = "";
-
-    const pageSlider = document.getElementById("pageSlider");
-    pageSlider.value = 500;
-
-    const pageValue = document.getElementById("pageValue");
-    pageValue.textContent = 500;
-
-}
-
 function handleSearch() {
     const searchInput = document.getElementById("searchInput");
 
