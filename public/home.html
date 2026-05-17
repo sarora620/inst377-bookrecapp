@@ -33,15 +33,23 @@
                         <select id="genreSelect">
                         <label>Genre</label>
                         <option value="">Choose a genre</option>
-                        <!-- will be filled in by js-->
+                        <option value="fantasy">Fantasy</option>
+                        <option value="romance">Romance</option>
+                        <option value="science_fiction">Science fiction</option>
+                        <option value="thriller">Thriller</option>
+                        <option value="young_adult">Young Adult (YA)</option>
+                        <option value="adventure">Adventure</option>
+                        <option value="poetry">Poetry</option>
+                        <option value="biography">Biography</option>
+                        <option value="fiction">Fiction</option>
+                        <option value="nonfiction">Nonfiction</option>
                         </select>
                     </div>
 
                     <!-- page count -->
                     <div class="option-group">
-
+                        <label for="pageSlider">Number of Pages</label>
                         <div class="range-container">
-                            <label>Number of Pages</label>
                             <span id="pagevalue"></span>
                             <span>50</span>
                             <input type="range" id="pageSlider" min="50" max="800" step="50" oninput="this.nextElementSibling.innerText = this.value">

@@ -8,11 +8,6 @@ function activateNav() {
     });
 };
 
-function expandSearch() {
-    const searchOptions = document.getElementById("searchOptions");
-    searchOptions.classList.add("active");
-}
-
 function updatePageNumber() {
     const pageValue = document.getElementById("pageValue");
     pageValue.textContent = pageSlider.value;
