@@ -23,10 +23,6 @@
             
             <div class="search-container">
                 <form id="book-form">
-                    <!-- TOP SEARCH BAR -->
-                    <div class="idle-search" id="idleSearch">
-                        <input type="text" id="searchInput" placeholder="Search for a book...">
-                    </div>
 
                     <!-- genre -->
                     <div class="option-group">
@@ -35,9 +31,9 @@
                         <option value="">Choose a genre</option>
                         <option value="fantasy">Fantasy</option>
                         <option value="romance">Romance</option>
-                        <option value="science_fiction">Science fiction</option>
+                        <option value="science+fiction">Science fiction</option>
                         <option value="thriller">Thriller</option>
-                        <option value="young_adult">Young Adult (YA)</option>
+                        <option value="young+adult">Young Adult (YA)</option>
                         <option value="adventure">Adventure</option>
                         <option value="poetry">Poetry</option>
                         <option value="biography">Biography</option>
@@ -48,17 +44,20 @@
 
                     <!-- page count -->
                     <div class="option-group">
-                        <label for="pageSlider">Number of Pages</label>
+                        <label for="pageSlider">Maximum number of pages</label>
                         <div class="range-container">
-                            <span id="pagevalue"></span>
                             <span>50</span>
                             <input type="range" id="pageSlider" min="50" max="800" step="50" oninput="this.nextElementSibling.innerText = this.value">
-                            <span>50</span> 
+                            <span>800</span> 
                         </div>
 
                     <button id="searchBtn" type="submit">Search</button> 
                 </form>
                 </div>
+            </div>
+
+            <div id="queryResults">
+                <h1 id="loading"></h1>
             </div>
         </div>
         
