@@ -8,7 +8,7 @@
         <!-- NAV BAR -->
         <nav>
             <div class="nav-container">
-                <a href="#" class="logo">The Cozy Catalog</a>
+                <a href="home.html" class="logo">The Cozy Catalog</a>
         
                   <a href="home.html" class="nav-link">Home</a>
                   <a href="about.html" class="nav-link">About</a>
@@ -22,37 +22,35 @@
             <h2>Dewey ain't eva decimal like this</h2>
             
             <div class="search-container">
-                <!-- TOP SEARCH BAR -->
-                <div class="idle-search" id="idleSearch">
+                <form id="book-form">
+                    <!-- TOP SEARCH BAR -->
+                    <div class="idle-search" id="idleSearch">
+                        <input type="text" id="searchInput" placeholder="Search for a book...">
+                        <button id="resetBtn">X</button>
+                    </div>
 
-                <input type="text" id="searchInput" placeholder="Search for a book...">
-                <button id="resetBtn">X</button>
-                </div>
-            </div>
+                    <!-- genre -->
+                    <div class="option-group">
+                        <select id="genreSelect">
+                        <label>Genre</label>
+                        <option value="">Choose a genre</option>
+                        <!-- will be filled in by js-->
+                        </select>
+                    </div>
 
-            <div class="search-options" id="searchOptions">
+                    <!-- page count -->
+                    <div class="option-group">
 
-                <!-- genre -->
-                <div class="option-group">
-                  <label>Genre</label>
-          
-                  <select id="genreSelect">
-                    <option value="">Choose a genre</option>
-                    <!-- will be filled in by js-->
-                  </select>
-                </div>
-          
-                <!-- page count -->
-                <div class="option-group">
-          
-                  <label>
-                    Max Pages:
-                    <span id="pageValue">500</span>
-                  </label>
-                  <input type="range" id="pageSlider" min="50" max="800" step="50" value="500">
+                        <div class="range-container">
+                            <label>Number of Pages</label>
+                            <span id="pagevalue"></span>
+                            <span>50</span>
+                            <input type="range" id="pageSlider" min="50" max="800" step="50" oninput="this.nextElementSibling.innerText = this.value">
+                            <span>50</span> 
+                        </div>
 
-                  <!-- SEARCH BUTTON -->
-                <button id="searchBtn">Search</button> 
+                    <button id="searchBtn">Search</button> 
+                </form>
                 </div>
             </div>
         </div>
