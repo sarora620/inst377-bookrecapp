@@ -6,7 +6,7 @@ body {
 }
   
 /* Nav positioning */
-.nav {
+nav {
     position: fixed;
     top: 24px;
     left: 24px;
@@ -132,4 +132,10 @@ body {
     text-align: center;
     font-weight: bold;
 }
-  
+
+#booksDisplay {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}

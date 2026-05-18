@@ -9,9 +9,8 @@
         <nav>
             <div class="nav-container">
                 <a href="home.html" class="logo">The Cozy Catalog</a>
-        
-                  <a href="home.html" class="nav-link">Home</a>
-                  <a href="about.html" class="nav-link">About</a>
+                <a href="home.html" class="nav-link active">Home</a>
+                <a href="about.html" class="nav-link">About</a>
             
             </div>
         </nav>
@@ -22,18 +21,20 @@
             <h2>Dewey ain't eva decimal like this</h2>
             
             <div class="search-container">
-                <form id="book-form">
+                <form id="book-form" onsubmit="searchSubmit(event)">
 
                     <!-- genre -->
                     <div class="option-group">
+                        <label for="genreSelect">Genre</label>
                         <select id="genreSelect">
-                        <label>Genre</label>
                         <option value="">Choose a genre</option>
                         <option value="fantasy">Fantasy</option>
                         <option value="romance">Romance</option>
-                        <option value="science+fiction">Science fiction</option>
+                        <option value="mystery">Mystery</option>
+                        <option value="dystopia">Dystopia</option>
+                        <option value="science fiction">Science fiction</option>
                         <option value="thriller">Thriller</option>
-                        <option value="young+adult">Young Adult (YA)</option>
+                        <option value="young adult">Young Adult (YA)</option>
                         <option value="adventure">Adventure</option>
                         <option value="poetry">Poetry</option>
                         <option value="biography">Biography</option>
@@ -47,8 +48,8 @@
                         <label for="pageSlider">Maximum number of pages</label>
                         <div class="range-container">
                             <span>50</span>
-                            <input type="range" id="pageSlider" min="50" max="800" step="50" oninput="this.nextElementSibling.innerText = this.value">
-                            <span>800</span> 
+                            <input type="range" id="pageSlider" min="50" max="800" step="50" value="100" oninput="document.getElementById('pageValue').innerText = this.value">
+                            <span id="pageValue">100</span> 
                         </div>
 
                     <button id="searchBtn" type="submit">Search</button> 
@@ -58,6 +59,12 @@
 
             <div id="queryResults">
                 <h1 id="loading"></h1>
+            </div>
+
+            <div id="booksDisplay">
+                <!-- filled with JS -->
+                 <div id="pageCountBooks"></div>
+                 <div id="genreBooks"></div>
             </div>
         </div>
         
