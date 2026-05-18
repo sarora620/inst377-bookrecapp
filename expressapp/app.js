@@ -86,7 +86,7 @@ app.get('/external-books', async (req, res) => {
 
 // ----------------------- serve them HTML pages!!!! ----------------------- //
 app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/public/home.html');
+    res.sendFile('/public/home.html', {root: __dirname});
 });
 
 app.get('/about', (req, res) => {
