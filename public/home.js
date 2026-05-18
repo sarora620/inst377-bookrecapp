@@ -73,30 +73,72 @@ async function apiBookFetch(genre, pageCount) {
         b && b.pages && b.pages <= cleanPage
     );
 
+    const unfiltered = results.filter(b =>
+        (b && b.pages && b.pages > cleanPage) || null
+    );
+
     if (filtered.length === 0) {
         document.getElementById("loading").innerText = "We couldn't find any books with that page count. Here are some recommendations in your genre instead!";
-        displayBooks(results.slice(0, 10));
+        displayBooks(unfiltered);
     } else {
         document.getElementById("loading").innerText = "";
         displayPagedBooks(filtered);
-        displayBooks(results.slice(0, 10));
+        displayBooks(unfiltered);
     }
 };
 
-function displayPagedBooks() {
-    console.log("now displaying")
-    pageBooks = document.getElementById("pageCountBooks");
-    noPageBooks = document.getElementById("genreBooks");
+function createBookDisplay(book) {
+    if (!book) return null;
+    const card = document.createElement("div");
+    card.className = "book-card";
 
-    
+    card.innerHTML = `
+        <p id="book-title"><strong>${book.title}</strong></p>
+        <p class="book-author">${book.author || "Unknown author"}</p>
+        <p class="book-pages">${book.pages ? book.pages + " pages" : "Pages unknown"}</p>
+    `;
+
+    return card;
+}
+
+function displayPagedBooks(books) {
+    console.log("now displaying books that meet page requirements")
+    pageBooks = document.getElementById("pageCountBooks");
+    pageBooks.innerHTML = "";
+
+    const title = document.createElement("h2");
+    title.innerText = "Best matches for your page limit";
+    pageBooks.appendChild(title);
+
+    const grid = document.createElement("div");
+    grid.className = "book-grid";
+
+    books.forEach(book => {
+        const card = createBookDisplay(book);
+        if (card) grid.appendChild(card);
+    });
+
+    pageBooks.appendChild(grid); 
 };
 
-function displayBooks() {
+function displayBooks(books) {
     console.log("now displaying")
-    pageBooks = document.getElementById("pageCountBooks");
     noPageBooks = document.getElementById("genreBooks");
+    noPageBooks.innerHTML = "";
 
+    const title = document.createElement("h2");
+    title.innerText = "Best matches for your genre!";
+    noPageBooks.appendChild(title);
 
+    const grid = document.createElement("div");
+    grid.className = "book-grid";
+
+    books.forEach(book => {
+        const card = createBookDisplay(book);
+        if (card) grid.appendChild(card);
+    });
+
+    noPageBooks.appendChild(grid);
 };
 
 
