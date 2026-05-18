@@ -91,6 +91,4 @@ app.get('/savedBooks', (req, res) => {
     res.sendFile('/public/savedBooks.html', {root: __dirname});
 });
 
-app.listen(port, () => {
-    console.log(`Express app listening on port ${port}`)
-});
+module.exports = app;
