@@ -13,6 +13,10 @@ const port = 3000;
 // initialize middeware
 app.use(bodyParser.json());
 
+app.get('/test', (req, res) => {
+    res.send('SERVER WORKS');
+});
+
 // ----------------------- add supabase db ----------------------- // 
 
 // SAVEDBOOKS DB //
@@ -82,7 +86,7 @@ app.get('/external-books', async (req, res) => {
 
 // ----------------------- serve them HTML pages!!!! ----------------------- //
 app.get('/', (req, res) => {
-    res.sendFile('/public/home.html', {root: __dirname});
+    res.sendFile(__dirname + '/public/home.html');
 });
 
 app.get('/about', (req, res) => {
