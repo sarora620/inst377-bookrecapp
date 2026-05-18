@@ -13,9 +13,6 @@ const port = 3000;
 // initialize middeware
 app.use(bodyParser.json());
 
-app.get('/test', (req, res) => {
-    res.send('SERVER WORKS');
-});
 
 // ----------------------- add supabase db ----------------------- // 
 
