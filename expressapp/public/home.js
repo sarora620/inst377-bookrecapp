@@ -29,7 +29,7 @@ async function apiBookFetch(genre, pageCount) {
     const cleanGenre = genre.trim().replace(/\s+/g, "_");
     // the cool lil range form doesnt give us a number, so i had to convert from string --> number
     const cleanPage = Number(pageCount);
-    const response = await fetch(`https://openlibrary.org/search.json?q=subject_key:${cleanGenre}`);
+    const response = await fetch(`/external-books?genre=${cleanGenre}`);
     const data = await response.json();
     // i tried 50...i got yelled at by the API for too many requests....
     const books = data.docs.slice(0, 20);
