@@ -93,11 +93,6 @@ app.get('/savedBooks', (req, res) => {
     res.sendFile('/public/savedBooks.html', {root: __dirname});
 });
 
-// 404 page 
-app.use((req, res) => {
-    res.status(404).sendFile('public/404.html', {root: __dirname});
-});
-
 app.listen(port, () => {
     console.log(`Express app listening on port ${port}`)
 });
