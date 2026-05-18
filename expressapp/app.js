@@ -82,15 +82,15 @@ app.get('/external-books', async (req, res) => {
 
 // ----------------------- serve them HTML pages!!!! ----------------------- //
 app.get('/', (req, res) => {
-    res.sendFile('public/home.html', {root: __dirname});
+    res.sendFile('/public/home.html', {root: __dirname});
 });
 
-app.get('/', (req, res) => {
-    res.sendFile('public/about.html', {root: __dirname});
+app.get('/about', (req, res) => {
+    res.sendFile('/public/about.html', {root: __dirname});
 });
 
-app.get('/', (req, res) => {
-    res.sendFile('public/savedBooks.html', {root: __dirname});
+app.get('/savedBooks', (req, res) => {
+    res.sendFile('/public/savedBooks.html', {root: __dirname});
 });
 
 // 404 page 
