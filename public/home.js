@@ -112,6 +112,27 @@ function createBookDisplay(book) {
     saveButton.className = "saveButton";
     saveButton.textContent = "Save";
 
+    saveButton.addEventListener("click", async () => {
+
+        console.log("Saving book:", book.title);
+
+        const response = await fetch('/books', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                title: book.title
+            })
+        });
+
+        const data = await response.json();
+        console.log("Saved:", data);
+
+        saveButton.textContent = "Saved";
+        saveButton.disabled = true;
+    });
+
     card.appendChild(saveButton);
 
     return card;
