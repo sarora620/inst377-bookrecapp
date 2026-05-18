@@ -47,11 +47,8 @@ app.post('/books', async (req, res) => {
     console.log('Adding book');
     console.log(`Request ${JSON.stringify(req.body)}`);
 
-    const title = req.body.title;
-
     const { data, error } = await supabase.from('books').insert({
-            title: title
-        }).select();
+            book_title: req.body.title}).select();
 
     if (error) {
         console.log('Error: ', error);

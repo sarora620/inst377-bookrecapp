@@ -10,7 +10,7 @@ async function populateTable() {
         const row = document.createElement("tr");
         const cell = document.createElement("td");
 
-        cell.textContent = book.title;
+        cell.textContent = book.book_title;
 
         row.appendChild(cell);
         tableBody.appendChild(row);
