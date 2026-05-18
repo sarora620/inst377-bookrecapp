@@ -105,7 +105,14 @@ function createBookDisplay(book) {
         <p id="book-title"><strong>${book.title}</strong></p>
         <p class="book-author">${book.author || "Unknown author"}</p>
         <p class="book-pages">${book.pages ? book.pages + " pages" : "Pages unknown"}</p>
+        <br>
     `;
+
+    const saveButton = document.createElement("button");
+    saveButton.className = "saveButton";
+    saveButton.textContent = "Save";
+
+    card.appendChild(saveButton);
 
     return card;
 }
