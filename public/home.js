@@ -25,16 +25,21 @@ function searchSubmit(event) {
 
 
 async function apiBookFetch(genre, pageCount) {
-
+    // openLibray api only accepts subject queries if the spaces inbetween are underscores NOT plus signs like we did in lab 7.
     const cleanGenre = genre.trim().replace(/\s+/g, "_");
+    // the cool lil range form doesnt give us a number, so i had to convert from string --> number
     const cleanPage = Number(pageCount);
     const response = await fetch(`https://openlibrary.org/search.json?q=subject_key:${cleanGenre}`);
     const data = await response.json();
+    // i tried 50...i got yelled at by the API for too many requests....
     const books = data.docs.slice(0, 20);
     
+    // I TRIED using a map and await fetch to simply get the edition for each book but that did NOT work. So i did a lil research and promise.all seemed to be the best solution here
+    // don't ask me how it works I have no idea but IT WORKS SO IM NOT COMPLAINING
     const results = await Promise.all(
         books.map(async (book) => {
-
+            // openLibrary doesnt really have clear pages for books if you search normally. You have to query the specific edition
+            // and even then they barely record pages. genuinely the bane of my existence. 
             const editionKey = book.cover_edition_key;
 
             if (!editionKey) {
@@ -46,14 +51,15 @@ async function apiBookFetch(genre, pageCount) {
                 const res = await fetch(
                     `https://openlibrary.org/books/${editionKey}.json`
                 );
-
+                // if the result doesnt work, log that it failed. 
                 if (!res.ok) {
                     console.log("FAILED FETCH:", editionKey);
                     return null;
                 }
 
                 const ed = await res.json();
-
+                // everything else is easy to get with a simple map
+                // ITS THE STUPID NUMBER OF PAGES THAT MADE ME DO THIS WHOLE ERROR CATCHING MESS
                 return {
                     title: book.title,
                     author: book.author_name?.[0],
@@ -69,10 +75,13 @@ async function apiBookFetch(genre, pageCount) {
 
     console.log("RAW RESULTS:", results);
 
+    // okay so this looks confusing but it isnt trust
+    // basically b is book and i only get the books that have pages listed, and where the pages are less than or equal to the user's desired page count
     const filtered = results.filter(b =>
         b && b.pages && b.pages <= cleanPage
     );
 
+    // i did this because i didnt wanna just put in a raw slice of the data since that would just duplicate the results from the filtered list. 
     const unfiltered = results.filter(b =>
         (b && b.pages && b.pages > cleanPage) || null
     );
@@ -101,10 +110,11 @@ function createBookDisplay(book) {
     return card;
 }
 
+// TWO display functions because i love my users and i want them to get whatever books they can! 
 function displayPagedBooks(books) {
     console.log("now displaying books that meet page requirements")
     pageBooks = document.getElementById("pageCountBooks");
-    pageBooks.innerHTML = "";
+    pageBooks.innerHTML = ""; // RESET. I MADE THE MISTAKE OF NOT DOING THAT. BAD!!!
 
     const title = document.createElement("h2");
     title.innerText = "Best matches for your page limit";
