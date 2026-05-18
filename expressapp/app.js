@@ -13,7 +13,7 @@ const port = 3000;
 // initialize middeware
 app.use(bodyParser.json());
 
-// ----------------------- add supabase db's ----------------------- // 
+// ----------------------- add supabase db ----------------------- // 
 // USERS DB //
 const supabaseURL_1 = process.env.SUPABASE_URL_1;
 const supabaseKey_1 = process.env.SUPABASE_KEY_1; // will link to dotenv
