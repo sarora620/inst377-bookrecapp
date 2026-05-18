@@ -6,3 +6,4 @@ I found that the best way to reduce my screentime was to read, but I find it dif
 
 The target browser for this website is Mac and Windows. This UI is not ideal for smartphones of any kind.
 
+for developer docs, please navigate to: https://github.com/sarora620/inst377-bookrecapp/blob/main/docs/developer_manual.md
