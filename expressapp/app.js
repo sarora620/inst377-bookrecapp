@@ -32,7 +32,7 @@ app.use(express.static(__dirname + '/public'));
 app.get('/books', async (req, res) => {
     console.log('Getting books');
 
-    const { data, error } = await supabase.from('savedBooks').select('*');
+    const { data, error } = await supabase.from('books').select('*');
 
     if (error) {
         console.log('Error: ', error);
@@ -49,7 +49,7 @@ app.post('/books', async (req, res) => {
 
     const title = req.body.title;
 
-    const { data, error } = await supabase.from('savedBooks').insert({
+    const { data, error } = await supabase.from('books').insert({
             title: title
         }).select();
 
